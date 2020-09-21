@@ -3,6 +3,21 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+/*
+const routes = [
+  {
+    name: 'start',
+    title: 'Start',
+    url: '/pages/start',
+    icon: 'home-outline'
+  },
+  {
+    name: 'setup',
+    title: 'Setup',
+    url: '/pages/setup',
+    icon: 'options-outline'
+  },
+];*/
 
 @Component({
   selector: 'app-root',
