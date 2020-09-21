@@ -8,12 +8,19 @@ import { stimulator_t } from './models/stimulator';
 })
 export class StimServiceService {
   public stimulator = new stimulator_t();
-  public stimLims = new stimulimits_t();
+;
   constructor() { 
     this.stimulator.IdKey = "";
     this.stimulator.ServerIP = "";
     this.stimulator.IdKey = "";
     let ch = new channel_t();
-    this.stimulator.channels.push(ch);
+    this.stimulator.channels = [ch];  // si le doy push aca la caga.
+  };
+  public get_stimulator()
+  {
+    return this.stimulator;
+  }
+  public getLimits() {
+    return this.stimulator.stimLims;
   }
 }

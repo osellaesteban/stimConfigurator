@@ -1,3 +1,4 @@
+import { FnParam } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { channel_t } from 'src/app/models/channel';
@@ -27,8 +28,7 @@ export class SetupPage implements OnInit {
 
   public stimulator = new stimulator_t();
   public temp_stim = new stimulator_t();
-
-  public temp_stimlimits = new stimulimits_t();
+  public stLimits: stimulimits_t;
 
   public knPW: {upper:number,lower:number};
   public knFreq: {upper:number,lower:number};
@@ -41,31 +41,37 @@ export class SetupPage implements OnInit {
   public validado = 0;
    
 
-  constructor() { };
-  //constructor(private activeteRoute: ActivatedRoute, private stimSrv :StimServiceService) { }
+  //constructor() { };
+  constructor(private activeteRoute: ActivatedRoute, private stimSrv: StimServiceService) { }
 
   ngOnInit() {
-    /*
-    this.knAmp = { upper: this.stimSrv.stimLims.AMPLimit, lower: this.stimSrv.stimLims.amplimit };
-    this.knFreq = { upper: this.stimSrv.stimLims.FREQLimit, lower: this.stimSrv.stimLims.freqLimit };
-    this.knAmp = { upper: this.stimSrv.stimLims.AMPLimit, lower: this.stimSrv.stimLims.amplimit };
-    //this.knChNum = this.stimSrv.stimulator.channels.length;
+    this.stimulator = this.stimSrv.get_stimulator();
+    this.stLimits = this.stimulator.stimLims; 
+    this.knFreq.upper = this.stLimits.FREQLimit;
+    this.knFreq.lower = this.stLimits.freqLimit;
+    this.knAmp.upper = this.stLimits.AMPLimit;
+    this.knAmp.lower = this.stLimits.amplimit;
+    
+    this.knPW.upper = this.stLimits.PWLimit;
+    this.knPW.lower = this.stLimits.pwlimit;
+    //this.knAmp = { upper: this.stimSrv.stimLims.AMPLimit, lower: this.stimSrv.stimLims.amplimit };
+    this.knChNum = this.stimSrv.stimulator.channels.length;
     this.tIP = this.stimSrv.stimulator.ServerIP;
     this.tStimKey = this.stimSrv.stimulator.IdKey;
-    this.tPatientID = this.stimSrv.stimulator.UserID;*/
+    this.tPatientID = this.stimSrv.stimulator.UserID;
   }
   validar() {
     
-    this.temp_stimlimits.PWLimit = this.knPW.upper;
-    this.temp_stimlimits.pwlimit = this.knPW.lower;
+    this.temp_stim.stimLims.PWLimit = this.knPW.upper;
+    this.temp_stim.stimLims.pwlimit = this.knPW.lower;
 
-    this.temp_stimlimits.FREQLimit = this.knFreq.upper;
-    this.temp_stimlimits.freqLimit = this.knFreq.lower;
+    this.temp_stim.stimLims.FREQLimit = this.knFreq.upper;
+    this.temp_stim.stimLims.freqLimit = this.knFreq.lower;
 
-    this.temp_stimlimits.AMPLimit = this.knAmp.upper;
-    this.temp_stimlimits.amplimit = this.knAmp.lower;
+    this.temp_stim.stimLims.AMPLimit = this.knAmp.upper;
+    this.temp_stim.stimLims.amplimit = this.knAmp.lower;
     let val = this.validado;
-    if (this.temp_stimlimits.validar() == 0)
+    if (this.temp_stim.stimLims.validar() == 0)
       val = 1;
     alert("PW entre " + this.knPW.lower + " y " + this.knPW.upper+".\nValidado: "+val);
     this.validado = val;

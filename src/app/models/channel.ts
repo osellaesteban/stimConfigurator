@@ -3,10 +3,10 @@
  * class that models each channel
  */
 export class channel_t{
-  public id: number;
-  public frequency: number;
-  public pulsewidth: number;
-  public amplitude: number;
+  public id: number = 0;
+  public frequency: number = 1000;
+  public pulsewidth: number = 100;
+  public amplitude: number = 1;
 
   public validate(FREQLimit: number, freqLimit: number, PWLimit: number, pwlimit: number, AMPLimit: number, amplimit: number) {
     let result :number = 0;
