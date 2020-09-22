@@ -42,10 +42,19 @@ export class SetupPage implements OnInit {
    
 
   //constructor() { };
-  constructor(private activeteRoute: ActivatedRoute, private stimSrv: StimServiceService) { }
+  constructor(private activeteRoute: ActivatedRoute, private stimSrv: StimServiceService) {
+    this.knPW = {upper:10,lower:0};
+    this.knFreq = {upper:10,lower:0};
+    this.knAmp = {upper:10,lower:0};
+    this.knChNum = 0;
+    this.tIP = "";
+    this.tPatientID = "";
+    this.tStimKey = "";
+   }
 
   ngOnInit() {
     this.stimulator = this.stimSrv.get_stimulator();
+
     this.stLimits = this.stimulator.stimLims; 
     this.knFreq.upper = this.stLimits.FREQLimit;
     this.knFreq.lower = this.stLimits.freqLimit;
