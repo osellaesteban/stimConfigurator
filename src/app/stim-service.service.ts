@@ -8,7 +8,7 @@ import { stimulator_t } from './models/stimulator';
 })
 export class StimServiceService {
   public stimulator = new stimulator_t();
-;
+; 
   constructor() { 
     this.stimulator.IdKey = "";
     this.stimulator.ServerIP = "";
@@ -20,6 +20,9 @@ export class StimServiceService {
   {
     return this.stimulator;
   }
+  public set_stimulator(stim) {
+    this.stimulator = stim
+  };
   public getLimits() {
     return this.stimulator.stimLims;
   }

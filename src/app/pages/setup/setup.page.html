@@ -17,28 +17,28 @@
       <ion-label>Pulse duration [ms]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range id="PWbar" dualKnobs="true" min="1" max="500" step="5" snaps="true" pin="true" [(ngModel)]="knPW"></ion-range>
+      <ion-range (ionChange)="changed()" id="PWbar" dualKnobs="true" min="1" max="500" step="5" snaps="true" pin="true" [(ngModel)]="knPW"></ion-range>
     </ion-item>
 
     <ion-item>
       <ion-label>Frequency [Hz]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range id="Freqdual" dualKnobs="true" min="10" max="400" step="10" snaps="true" pin="true" [(ngModel)]="knFreq"></ion-range>
+      <ion-range (ionChange)="changed()" id="Freqdual" dualKnobs="true" min="10" max="400" step="10" snaps="true" pin="true" [(ngModel)]="knFreq"></ion-range>
     </ion-item>
 
     <ion-item>
       <ion-label>Amplitude [mA]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range id="Ampldual" dualKnobs="true" min="10" max="500" step="10" snaps="true" pin="true" [(ngModel)]="knAmp"></ion-range>
+      <ion-range (ionChange)="changed()" id="Ampldual" dualKnobs="true" min="10" max="500" step="10" snaps="true" pin="true" [(ngModel)]="knAmp"></ion-range>
     </ion-item>
 
     <ion-item>
       <ion-label>Number of channels</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range id="Channelsbar" dualKnobs="false" min="1" max="6" step="1" snaps="true" pin="true" [(ngModel)]="knChNum"></ion-range>
+      <ion-range (ionChange)="changed()" id="Channelsbar" dualKnobs="false" min="1" max="6" step="1" snaps="true" pin="true" [(ngModel)]="knChNum"></ion-range>
     </ion-item>
 
     <ion-item>

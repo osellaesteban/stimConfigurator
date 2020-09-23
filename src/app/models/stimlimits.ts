@@ -6,6 +6,15 @@ export class stimulimits_t {
   public AMPLimit: number;
   public amplimit: number;
 
+  constructor() {
+    this.AMPLimit = 10;
+    this.amplimit = 0;
+    this.FREQLimit = 10;
+    this.freqLimit = 0;
+    this.PWLimit = 10;
+    this.pwlimit = 0;
+  };
+
   public validar() { 
     let res = 0;
     if (this.FREQLimit < this.freqLimit)

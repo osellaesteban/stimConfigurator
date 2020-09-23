@@ -7,4 +7,7 @@ export class stimulator_t{
   public UserID: number;
   public stimLims = new stimulimits_t()
   public channels: Array<channel_t>;  
+  constructor() {
+    //this.channels[1] = new channel_t();
+  }
 }
