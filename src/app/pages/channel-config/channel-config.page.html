@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Channel setup
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Stimulator patterns limits
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Channel</ion-label>
+      <ion-select value="{{selectedChannel}}" [(ngModel)]="selectedChannel" (ionChange)="ChannelSelect()">
+        <ion-select-option *ngFor="let ch of stimulator.channels">{{ch.id}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pulse duration [ms]</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-range id="PW" dualKnobs="false" min="{{this.stimulator.stimLims.pwlimit}}" max="{{this.stimulator.stimLims.PWLimit}}" step="{{PWstep}}" snaps="true" pin="true" [(ngModel)]="knPW" [disabled]="validado==0"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Frequency [Hz]</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-range id="Freq" dualKnobs="false" min="{{this.stimulator.stimLims.freqLimit}}" max="{{this.stimulator.stimLims.FREQLimit}}" step="{{Freqstep}}" snaps="true" pin="true" [(ngModel)]="knFreq" [disabled]="validado==0"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Amplitude [mA]</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-range id="Amp" dualKnobs="false" min="{{this.stimulator.stimLims.amplimit}}" max="{{this.stimulator.stimLims.AMPLimit}}" step="{{Ampstep}}" snaps="true" pin="true" [(ngModel)]="knAmp" [disabled]="validado==0"></ion-range>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="testear()" expand="block" >
+    <ion-icon slot="start" name="checkmark-outline"></ion-icon>
+    Testear
+  </ion-button>
+  <ion-button (click)="guardar()" expand="block"  [disabled]="validado==0" >
+    <ion-icon slot="start" name="save-outline"></ion-icon>
+    Guardar y volver
+  </ion-button>
+  <ion-button (click)="reestablecer()" expand="block">
+    <ion-icon slot="start" name="reload-outline"></ion-icon>
+    Reestablecer
+  </ion-button>
+</ion-content>

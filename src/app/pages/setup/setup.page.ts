@@ -100,10 +100,12 @@ export class SetupPage implements OnInit {
       this.temp_stim.channels.push(new channel_t());
     if (this.temp_stim.channels.length > this.knChNum)
       this.temp_stim.channels.length = this.knChNum;
+    for (let id = 0; id < this.temp_stim.channels.length; id++) {
+      this.temp_stim.channels[id].id = id;
+    }
     if (this.validado)
     {
       this.stimSrv.set_stimulator(this.temp_stim);
-      //this.stimSrv.stimulator = this.temp_stim;
     }
       
    
