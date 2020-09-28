@@ -11,19 +11,19 @@
 
 <ion-content [fullscreen]="true">
   <ion-button (click)="onClick()" expand="block" >
-    Explorar ...
+    Explore ...
   </ion-button>
 
   <div *ngFor="let d of dis">
-    {{d.id}}
+    <!-- {{d.id}} -->
     {{d.address}}
     {{d.name}}
-    <ion-button (click)="establecerMAC(d.address)" expand="block" >
-      Conectar
+    <ion-button (click)="establecerMAC(d.address)" expand="block">
+      Bind!
     </ion-button>
 
   </div>
   <ion-button (click)="uploadToStim()" expand="block" >
-    Grabar en estimulador
+    Record in stimulator
   </ion-button>
 </ion-content>

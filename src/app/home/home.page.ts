@@ -15,7 +15,7 @@ export class HomePage {
   public async onClick() {
     try{
       await this.bt.isEnabled();
-      alert("Esta enabled");
+      alert("Bluetooth Device enabled");
       this.listaDisp();
     } catch (e) {
       alert(e);
@@ -36,7 +36,7 @@ export class HomePage {
   {
     this.stimulator = this.stimSrv.get_stimulator();
     let msj = this.stimulator.getJson();
-    alert("Mensaje a enviar:\n" + msj);
+    alert("Message to send:\n" + msj);
     this.bt.connect(this.stimulator.IdKey).subscribe(res => {
       this.stimulator = this.stimSrv.get_stimulator();    
       this.bt.write(msj);
