@@ -4,8 +4,8 @@
  */
 export class channel_t{
   public id: number = 0;
-  public frequency: number = 1000;
-  public pulsewidth: number = 100;
+  public frequency: number = 100;
+  public pulsewidth: number = 10;
   public amplitude: number = 1;
 
   public validate(FREQLimit: number, freqLimit: number, PWLimit: number, pwlimit: number, AMPLimit: number, amplimit: number) {
@@ -30,6 +30,13 @@ export class channel_t{
   public compare_chNum(a:channel_t,b:channel_t) {
     return a.id-b.id;
   };
+
+  public getJson() {
+    let msg: string = "{\"channel\":" + this.id + ",\"frequency\":" +
+      this.frequency + ",\"pulsewidth\":" + this.pulsewidth + ",\"current\":"
+      + this.amplitude + "},";
+    return msg;
+  }
   
   public constructor() {
     

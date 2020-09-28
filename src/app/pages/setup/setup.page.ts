@@ -34,44 +34,48 @@ export class SetupPage implements OnInit {
   public knFreq: {upper:number,lower:number};
   public knAmp:  {upper:number,lower:number};
   public knChNum: number;
-  public tIP;
+  public tIP: string;
   public tPatientID;
-  public tStimKey;
+  public tStimKey: string;
 
   public validado = 0;
    
 
   //constructor() { };
   constructor(private activeteRoute: ActivatedRoute, private stimSrv: StimServiceService) {
-    this.knPW = {upper:500,lower:1};
-    this.knFreq = {upper:100,lower:10};
-    this.knAmp = {upper:500,lower:10};
+    this.knPW = {upper:80,lower:20};
+    this.knFreq = {upper:100,lower:20};
+    this.knAmp = {upper:250,lower:10};
     this.knChNum = 1;
     this.tIP = "";
     this.tPatientID = "";
     this.tStimKey = "";
    }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.temp_stim = this.stimSrv.get_stimulator();
-//    this.stLimits = this.stimulator.stimLims; 
+    
     this.knFreq.upper = this.temp_stim.stimLims.FREQLimit;
     this.knFreq.lower = this.temp_stim.stimLims.freqLimit;
+    
     this.knAmp.upper = this.temp_stim.stimLims.AMPLimit;
     this.knAmp.lower = this.temp_stim.stimLims.amplimit;
     
     this.knPW.upper = this.temp_stim.stimLims.PWLimit;
     this.knPW.lower = this.temp_stim.stimLims.pwlimit;
-    //this.knAmp = { upper: this.stimSrv.stimLims.AMPLimit, lower: this.stimSrv.stimLims.amplimit };
+
     this.knChNum = this.temp_stim.channels.length;
+
     this.tIP = this.temp_stim.ServerIP;
+
     this.tStimKey = this.temp_stim.IdKey;
+    
     this.tPatientID = this.temp_stim.UserID;
   }
-  changed() {
+  public changed() {
     this.validado = 0;
   }
-  validar() {
+  public validar() {
     
     this.temp_stim.stimLims.PWLimit = this.knPW.upper;
     this.temp_stim.stimLims.pwlimit = this.knPW.lower;
@@ -84,16 +88,15 @@ export class SetupPage implements OnInit {
     let val = this.validado;
     if (this.temp_stim.stimLims.validar() == 0)
       val = 1;
-    alert("PW entre " + this.knPW.lower + " y " + this.knPW.upper+".\nValidado: "+val);
+    //alert("PW entre " + this.knPW.lower + " y " + this.knPW.upper+".\nValidado: "+val);
     this.validado = val;
     
   }
-  guardar() {
+  public guardar() {
     
     this.temp_stim.IdKey = this.tStimKey;
     this.temp_stim.UserID = this.tPatientID;
-    //this.temp_stim.channels. = this.knChNum;
-    alert(this.temp_stim.channels.length);
+    
     if (this.temp_stim.channels.length)
       this.temp_stim.channels.sort(predicateBy("id"));
     while (this.temp_stim.channels.length < this.knChNum)
@@ -104,15 +107,14 @@ export class SetupPage implements OnInit {
       this.temp_stim.channels[id].id = id;
     }
     if (this.validado)
-    {
+      {
       this.stimSrv.set_stimulator(this.temp_stim);
     }
-      
-   
-    
-  
   }
-  reestablecer() {
+  
+  public reestablecer() {
+    this.ngOnInit();
+    location.reload()
     
   }
 

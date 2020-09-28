@@ -14,24 +14,27 @@
       Stimulator patterns limits
     </ion-list-header>
     <ion-item>
-      <ion-label>Pulse duration [ms]</ion-label>
+      <ion-label>Pulse width [%]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range (ionChange)="changed()" id="PWbar" dualKnobs="true" min="1" max="500" step="5" snaps="true" pin="true" [(ngModel)]="knPW"></ion-range>
+      <ion-range (ionChange)="changed()" id="PWbar" dualKnobs="true" min="0" max="100" 
+                step="5" snaps="true" pin="true" [(ngModel)]="knPW"></ion-range>
     </ion-item>
 
     <ion-item>
       <ion-label>Frequency [Hz]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range (ionChange)="changed()" id="Freqdual" dualKnobs="true" min="10" max="400" step="10" snaps="true" pin="true" [(ngModel)]="knFreq"></ion-range>
+      <ion-range (ionChange)="changed()" id="Freqdual" dualKnobs="true" min="2" max="150" 
+      step="1" snaps="true" pin="true" [(ngModel)]="knFreq"></ion-range>
     </ion-item>
 
     <ion-item>
       <ion-label>Amplitude [mA]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range (ionChange)="changed()" id="Ampldual" dualKnobs="true" min="10" max="500" step="10" snaps="true" pin="true" [(ngModel)]="knAmp"></ion-range>
+      <ion-range (ionChange)="changed()" id="Ampldual" dualKnobs="true" min="10" max="350" step="10"
+       snaps="true" pin="true" [(ngModel)]="knAmp"></ion-range>
     </ion-item>
 
     <ion-item>

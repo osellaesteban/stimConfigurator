@@ -19,6 +19,7 @@ export class ChannelConfigPage implements OnInit {
   public PWstep: number;
   public Freqstep: number;
   public Ampstep: number;
+  
 
   constructor(private activeteRoute: ActivatedRoute, private stimSrv: StimServiceService) { }
 
@@ -30,9 +31,9 @@ export class ChannelConfigPage implements OnInit {
     this.PWstep = (this.stimulator.stimLims.PWLimit-this.stimulator.stimLims.pwlimit)/20;
     this.Freqstep = (this.stimulator.stimLims.FREQLimit-this.stimulator.stimLims.freqLimit)/20;
     this.Ampstep = (this.stimulator.stimLims.AMPLimit - this.stimulator.stimLims.amplimit) / 20;
-    for (let k = 0; k < this.nChannels; k++)
-      alert(this.stimulator.channels[k].id);
-  }
+    /*for (let k = 0; k < this.nChannels; k++)
+      alert(this.stimulator.channels[k].id);*/
+  } 
   public ChannelSelect() {
     this.stimulator = this.stimSrv.get_stimulator();
 
@@ -57,6 +58,11 @@ export class ChannelConfigPage implements OnInit {
   }
 
   public testear() {
+    this.stimulator.channels[this.selectedChannel].pulsewidth = this.PW;
+    this.stimulator.channels[this.selectedChannel].amplitude = this.Amp;
+    this.stimulator.channels[this.selectedChannel].frequency = this.Freq;
+    let msj = this.stimulator.channels[this.selectedChannel].getJson();
+    alert("Mensaje a enviar:\n" + msj);
     
   }
 
@@ -64,10 +70,17 @@ export class ChannelConfigPage implements OnInit {
     this.stimulator.channels[this.selectedChannel].pulsewidth = this.PW;
     this.stimulator.channels[this.selectedChannel].amplitude = this.Amp;
     this.stimulator.channels[this.selectedChannel].frequency = this.Freq;
+    this.stimSrv.set_stimulator(this.stimulator);
   }
 
   public reestablecer() {
-    
+    /*
+    this.stimulator = this.stimSrv.get_stimulator();
+    this.PW = this.stimulator.channels[this.selectedChannel].pulsewidth;
+    this.Amp = this.stimulator.channels[this.selectedChannel].amplitude;
+    this.Freq = this.stimulator.channels[this.selectedChannel].frequency;*/
+    this.ngOnInit();
+    location.reload()
   }
 
 }

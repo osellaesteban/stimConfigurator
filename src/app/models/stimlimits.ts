@@ -7,12 +7,12 @@ export class stimulimits_t {
   public amplimit: number;
 
   constructor() {
-    this.AMPLimit = 10;
-    this.amplimit = 0;
-    this.FREQLimit = 10;
-    this.freqLimit = 0;
-    this.PWLimit = 10;
-    this.pwlimit = 0;
+    this.AMPLimit = 250;
+    this.amplimit = 20;
+    this.FREQLimit = 100;
+    this.freqLimit = 10;
+    this.PWLimit = 80;
+    this.pwlimit = 10;
   };
 
   public validar() { 
@@ -23,6 +23,8 @@ export class stimulimits_t {
       res += 2;
     if (this.AMPLimit < this.amplimit)
       res += 4;
+    if (res == 0)
+ 
     return res;
   };
 }

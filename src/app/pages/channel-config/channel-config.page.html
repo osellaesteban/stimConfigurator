@@ -26,21 +26,21 @@
       <ion-label>Pulse duration [ms]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range id="PW" dualKnobs="false" min="{{this.stimulator.stimLims.pwlimit}}" max="{{this.stimulator.stimLims.PWLimit}}" step="{{PWstep}}" snaps="true" pin="true" [(ngModel)]="knPW" [disabled]="validado==0"></ion-range>
+      <ion-range id="PW" dualKnobs="false" min="{{this.stimulator.stimLims.pwlimit}}" max="{{this.stimulator.stimLims.PWLimit}}" step="{{PWstep}}" snaps="true" pin="true" [(ngModel)]="PW" [disabled]="validado==0"></ion-range>
     </ion-item>
 
     <ion-item>
       <ion-label>Frequency [Hz]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range id="Freq" dualKnobs="false" min="{{this.stimulator.stimLims.freqLimit}}" max="{{this.stimulator.stimLims.FREQLimit}}" step="{{Freqstep}}" snaps="true" pin="true" [(ngModel)]="knFreq" [disabled]="validado==0"></ion-range>
+      <ion-range id="Freq" dualKnobs="false" min="{{this.stimulator.stimLims.freqLimit}}" max="{{this.stimulator.stimLims.FREQLimit}}" step="{{Freqstep}}" snaps="true" pin="true" [(ngModel)]="Freq" [disabled]="validado==0"></ion-range>
     </ion-item>
 
     <ion-item>
       <ion-label>Amplitude [mA]</ion-label>
     </ion-item>
     <ion-item>
-      <ion-range id="Amp" dualKnobs="false" min="{{this.stimulator.stimLims.amplimit}}" max="{{this.stimulator.stimLims.AMPLimit}}" step="{{Ampstep}}" snaps="true" pin="true" [(ngModel)]="knAmp" [disabled]="validado==0"></ion-range>
+      <ion-range id="Amp" dualKnobs="false" min="{{this.stimulator.stimLims.amplimit}}" max="{{this.stimulator.stimLims.AMPLimit}}" step="{{Ampstep}}" snaps="true" pin="true" [(ngModel)]="Amp" [disabled]="validado==0"></ion-range>
     </ion-item>
   </ion-list>
 
