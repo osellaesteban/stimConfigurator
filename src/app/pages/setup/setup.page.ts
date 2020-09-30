@@ -85,8 +85,13 @@ export class SetupPage implements OnInit {
 
     this.temp_stim.stimLims.AMPLimit = this.knAmp.upper;
     this.temp_stim.stimLims.amplimit = this.knAmp.lower;
+    
+    this.temp_stim.IdKey = this.tStimKey;
+    this.temp_stim.UserID = this.tPatientID;
+    this.temp_stim.ServerIP = this.tIP;
+
     let val = this.validado;
-    if (this.temp_stim.stimLims.validar() == 0)
+    if ((this.temp_stim.stimLims.validar() == 0) && (this.temp_stim.IdKey.length !=0)&& (this.temp_stim.UserID !=NaN))
       val = 1;
     //alert("PW entre " + this.knPW.lower + " y " + this.knPW.upper+".\nValidado: "+val);
     this.validado = val;

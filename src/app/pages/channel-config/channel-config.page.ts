@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
 import { stimulator_t } from 'src/app/models/stimulator';
 import { StimServiceService } from 'src/app/stim-service.service';
 
@@ -21,7 +22,7 @@ export class ChannelConfigPage implements OnInit {
   public Ampstep: number;
   
 
-  constructor(private activeteRoute: ActivatedRoute, private stimSrv: StimServiceService) { }
+  constructor(private bt: BluetoothSerial,private activeteRoute: ActivatedRoute, private stimSrv: StimServiceService) { }
 
   ngOnInit() {
     this.stimulator = this.stimSrv.get_stimulator();
@@ -61,8 +62,16 @@ export class ChannelConfigPage implements OnInit {
     this.stimulator.channels[this.selectedChannel].pulsewidth = this.PW;
     this.stimulator.channels[this.selectedChannel].amplitude = this.Amp;
     this.stimulator.channels[this.selectedChannel].frequency = this.Freq;
+    this.stimulator.IdKey = this.stimSrv.stimulator.IdKey;
     let msj = this.stimulator.channels[this.selectedChannel].getJson();
     alert("Mensaje a enviar:\n" + msj);
+    this.bt.connect(this.stimulator.IdKey).subscribe(res => {
+      this.stimulator = this.stimSrv.get_stimulator();    
+      this.bt.write(msj);
+      this.bt.disconnect();
+    }, error => {
+        alert(error);
+    });
     
   }
 

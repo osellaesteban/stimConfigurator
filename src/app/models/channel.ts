@@ -34,7 +34,7 @@ export class channel_t{
   public getJson() {
     let msg: string = "{\"channel\":" + this.id + ",\"frequency\":" +
       this.frequency + ",\"pulsewidth\":" + this.pulsewidth + ",\"current\":"
-      + this.amplitude + "},";
+      + this.amplitude + "}\n";
     return msg;
   }
   
