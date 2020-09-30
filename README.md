@@ -1,6 +1,8 @@
 # Stimulator configurator
 **Esteban Osella**
+
 **Programación de dispositivos móviles**
+
 **Especialización en sistemas embebidos FI-UNER**
 
 This project is a prototype for configuring  via bluetooth a Functional electrical stimulator device operated using a ESP32 device. The sample ESP program only shows in a serial terminal the uploaded configuration and test. 
