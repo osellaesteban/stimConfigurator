@@ -7,6 +7,7 @@ The dialog between devices is performed via JSON messages.
 ### ToDo list:
 + Generate a server to store the configurations. 
 + When connecting,  the stimulator should talk with the phone things like number of channels and limiting configuration parameters.
++ A QR code might be usefull as a second authentification method.
 
 
 ### Pautas
