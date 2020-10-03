@@ -15,7 +15,7 @@ export class HomePage {
   public async onClick() {
     try{
       await this.bt.isEnabled();
-      alert("Bluetooth Device enabled");
+      alert("Bluetooth Device enabled, now scanning.");
       this.listaDisp();
     } catch (e) {
       alert(e);

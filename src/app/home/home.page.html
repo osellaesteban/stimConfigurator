@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Connect
+      Connect with devices 
     </ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
@@ -10,20 +10,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-button (click)="onClick()" expand="block" >
+  <ion-button class="botonBind" isRound="true" (click)="onClick()" expand="block" >
     Explore ...
   </ion-button>
 
   <div *ngFor="let d of dis">
+    <!--<ion-item *ngIf="{{d.name}}.includes('Stimulator')">  doesn't works as expected.... since it shows everything -->
     <!-- {{d.id}} -->
     {{d.address}}
     {{d.name}}
-    <ion-button (click)="establecerMAC(d.address)" expand="block">
+    <div  id="button-div">
+  <ion-button class="botonBind" isRound="true" (click)="establecerMAC(d.address)" expand="block">
       Bind!
     </ion-button>
-
   </div>
-  <ion-button (click)="uploadToStim()" expand="block" >
+  <!--</ion-item> -->
+  </div>
+  <ion-button class="botonBind" isRound="true" (click)="uploadToStim()" expand="block" >
     Record in stimulator
   </ion-button>
 </ion-content>
