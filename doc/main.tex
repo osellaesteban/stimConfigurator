@@ -1,0 +1,134 @@
+\documentclass[12pt]{article} %draft:frame da fig
+\usepackage[a4paper,left=20mm,right=25mm,top=51mm,bottom=25mm,headsep=15.5mm]{geometry} 
+\usepackage[a-3b]{pdfx}
+\usepackage{hyperref}
+
+
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+ \usepackage[spanish,es-noshorthands]{babel}
+%\usepackage{natbib}
+ 
+\usepackage{xcolor}
+
+\usepackage[absolute]{textpos}
+%\usepackage[alf,versalete]{abntex2cite}
+%\usepackage[alf, abnt-etal-cite=1, abnt-repeated-author-omit=yes]{abntex2cite}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{geometry}
+%\usepackage{marginnote}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+\definecolor{fullwhite}{RGB}{255,255,255}
+\usepackage[framed,numbered]{matlab-prettifier}
+
+%\usepackage{lipsum}% just to generate filler text for the example
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+\fancyhead[C]{}
+
+\fancyhead[L]{\begin{picture}(0,0) \put(0,0){\includegraphics[width=210mm]{superior}} \end{picture}}
+\fancyhead[R]{\vspace{-50mm}\textcolor{fullwhite}{\textbf{Especialización en Sistemas Embebidos\\Sistema Operativo para dispositivos móviles}\vspace{15mm}}}
+
+\fancypagestyle{firststyle}
+{
+   \fancyhead[L]{\begin{picture}(0,0) \put(0,0){\includegraphics[width=210mm]{superior}} \end{picture}}
+   \fancyhead[R]{\vspace{-50mm}\textcolor{fullwhite}{\textbf{Especialización en Sistemas Embebidos\\Sistemas Operativos para dispositivos móviles}\vspace{15mm}}}
+}
+%
+%\chead{\begin{picture}(0,0) \put(0,0){\includegraphics[width=210mm]{superior}} \end{picture}}  
+%\rhead{Bioingeniería \\ Control Básico \\Diseño de control por método frecuencial}
+\rfoot{\thepage}
+\cfoot{}
+\lfoot{Sugerencias, consultas: eosella@ingenieria.uner.edu.ar\\ Rev.: 1.0 - \today}
+%\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Length to control the \fancyheadoffset and the calculation of \headline
+% simultaneously
+\newlength\FHoffset
+\setlength\FHoffset{20mm}
+
+\addtolength\headwidth{2\FHoffset}
+
+\fancyheadoffset{\FHoffset}
+
+% these lengths will control the headrule trimming to the left and right 
+\newlength\FHleft
+\newlength\FHright
+
+% here the trimmings are controlled by the user
+\setlength\FHleft{1cm}
+\setlength\FHright{0cm}
+
+% The new definition of headrule that will take into acount the trimming(s)
+\newbox\FHline
+\setbox\FHline=\hbox{\hsize=\paperwidth%
+  \hspace*{\FHleft}%
+  %\rule{\dimexpr\headwidth-\FHleft-\FHright\relax}{\headrulewidth}\hspace*{\FHright}%
+}
+\renewcommand\headrule{\vskip-.7\baselineskip\copy\FHline}
+
+\renewcommand{\familydefault}{\sfdefault} 
+%https://en.wikibooks.org/wiki/LaTeX/Fonts
+
+\usepackage{setspace}% \onehalfspacing  
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{verbatim}
+\usepackage{gensymb}
+\usepackage{subcaption}
+
+%https://tex.stackexchange.com/questions/65849/confusion-onehalfspacing-vs-spacing-vs-word-vs-the-world
+
+%\usepackage[svgnames,dvipsnames,x11names,table,xcdraw]{xcolor} 
+%\usepackage{indentfirst} 
+%\usepackage{url} %url clicáveis
+%https://tex.stackexchange.com/questions/45498/choosing-whether-to-include-pdf-or-png-in-pdflatex
+\usepackage{graphicx} %graphbox: Extend graphicx to improve placement of graphics 
+\ifpdf
+  \DeclareGraphicsExtensions{%
+    .png,.PNG,%
+    .pdf,.PDF,%
+    .jpg,.mps,.jpeg,.jbig2,.jb2,.JPG,.JPEG,.JBIG2,.JB2}
+\else
+  \DeclareGraphicsExtensions{.eps}
+\fi
+\graphicspath{{figs/}}
+\usepackage{subcaption}
+\usepackage{enumitem,amssymb}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+
+%\graphicspath{{subdir1/}{subdir2/}{subdir3/}...{subdirn/}}
+
+
+%https://tex.stackexchange.com/questions/146306/how-to-make-horizontal-lists
+
+%\newenvironment{citacao}{\begin{quoting}[rightmargin=0cm,leftmargin=4cm]\begin{singlespace}\small\noindent\hspace{-0.43em}}{\end{singlespace}\end{quoting}}
+
+%\newcommand{\titulo}[1]{\begin{center}\bf \large \MakeUppercase{#1}\end{center}\vspace{1em}}
+
+
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{dfn}{Definición}
+
+
+\begin{document}
+
+
+\input{tp_final_FES_Android}
+
+%\textbf{}\bibliographystyle{IEEEtran}
+\bibliographystyle{ieeetr}
+%\bibliography{bibliografia}
+
+\end{document}
+
